@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ypU5yFZ9DNaJABo0+DsoquLznZZWvjV8IsfyAiUUYhwGOWPiRiF1voYwfjTE73njo/PJIA/8TXEvEenf0vgLgA==",
+  "dgSpecHash": "dejnYgA0E/9brTHq1eXmMbfA1wv68IJctWApgl19Gd1iJjptV+7sN1KNkZYKoqFN4mCpIJHRHJJE4mNnASi36g==",
   "success": true,
-  "projectFilePath": "C:\\Users\\INS 5570\\source\\repos\\FundooNotes\\CommonLayer\\CommonLayer.csproj",
+  "projectFilePath": "C:\\Users\\INS 5570\\source\\repos\\DNDWebAPI-FundooNotes\\FundooNotes\\CommonLayer\\CommonLayer.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

@@ -42,19 +42,29 @@ namespace BusinessLayer.Services
             return inoteRepo.DeleteNote(userId, noteId);
         }
 
-        public bool TrashNote(int noteId)
+        public bool TrashNote(int userId, int noteId)
         {
-            return inoteRepo.TrashNote(noteId);
+            return inoteRepo.TrashNote(userId, noteId);
         }
 
-        public bool ChangePinNote(int noteId)
+        public bool ChangePinNote(int userId, int noteId)
         {
-            return inoteRepo.ChangePinNote(noteId);
+            return inoteRepo.ChangePinNote(userId, noteId);
         }
 
-        public bool ArchiveNote(int noteId)
+        public bool ArchiveNote(int userId, int noteId)
         {
-            return inoteRepo.ArchiveNote(noteId);
+            return inoteRepo.ArchiveNote(userId, noteId);
+        }
+
+        public string ChangeBackgroundColor(int userId, int noteId, string backgroundColor)
+        {
+            return inoteRepo.ChangeBackgroundColor(userId, noteId, backgroundColor);
+        }
+
+        public DateTime NoteReminder(int userId, int noteId, DateTime reminder)
+        {
+            return inoteRepo.NoteReminder(userId, noteId, reminder);
         }
     }
 }

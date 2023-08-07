@@ -6117,11 +6117,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\INS 5570\\source\\repos\\FundooNotes\\RepositoryLayer\\RepositoryLayer.csproj",
+      "projectUniqueName": "C:\\Users\\INS 5570\\source\\repos\\DNDWebAPI-FundooNotes\\FundooNotes\\RepositoryLayer\\RepositoryLayer.csproj",
       "projectName": "RepositoryLayer",
-      "projectPath": "C:\\Users\\INS 5570\\source\\repos\\FundooNotes\\RepositoryLayer\\RepositoryLayer.csproj",
+      "projectPath": "C:\\Users\\INS 5570\\source\\repos\\DNDWebAPI-FundooNotes\\FundooNotes\\RepositoryLayer\\RepositoryLayer.csproj",
       "packagesPath": "C:\\Users\\INS 5570\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\INS 5570\\source\\repos\\FundooNotes\\RepositoryLayer\\obj\\",
+      "outputPath": "C:\\Users\\INS 5570\\source\\repos\\DNDWebAPI-FundooNotes\\FundooNotes\\RepositoryLayer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\INS 5570\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6138,8 +6138,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\INS 5570\\source\\repos\\FundooNotes\\CommonLayer\\CommonLayer.csproj": {
-              "projectPath": "C:\\Users\\INS 5570\\source\\repos\\FundooNotes\\CommonLayer\\CommonLayer.csproj"
+            "C:\\Users\\INS 5570\\source\\repos\\DNDWebAPI-FundooNotes\\FundooNotes\\CommonLayer\\CommonLayer.csproj": {
+              "projectPath": "C:\\Users\\INS 5570\\source\\repos\\DNDWebAPI-FundooNotes\\FundooNotes\\CommonLayer\\CommonLayer.csproj"
             }
           }
         }

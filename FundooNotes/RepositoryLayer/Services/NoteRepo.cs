@@ -143,18 +143,22 @@ namespace RepositoryLayer.Services
             }  
         }
 
-        public bool TrashNote(int noteId)
+        public bool TrashNote(int userId, int noteId)
         {
             try
             {
                 NoteEntity noteEntity = new NoteEntity();
-                noteEntity = fundooDBContext.Notes.Where(x => x.NoteId == noteId).FirstOrDefault();
+                noteEntity = fundooDBContext.Notes.Where(x => x.NoteId == noteId && x.UserId == userId).FirstOrDefault();
                 if (noteEntity.Trash)
                 {
                     noteEntity.Trash = false;
-                    return noteEntity.Trash;
                 }
-                noteEntity.Trash = true;
+                else
+                {
+                    noteEntity.Trash = true;
+                }
+                
+                fundooDBContext.SaveChanges();
                 return noteEntity.Trash;
             }
             catch (Exception ex)
@@ -163,20 +167,24 @@ namespace RepositoryLayer.Services
             }
         }
 
-        public bool ChangePinNote(int noteId)
+        public bool ChangePinNote(int userId, int noteId)
         {
             try
             {
                 NoteEntity noteEntity = new NoteEntity();
-                noteEntity = fundooDBContext.Notes.Where(x => x.NoteId == noteId).FirstOrDefault();
+                noteEntity = fundooDBContext.Notes.Where(x => x.NoteId == noteId && x.UserId == userId).FirstOrDefault();
                 if (noteEntity.PinNote)
                 {
                     noteEntity.PinNote = false;
                     noteEntity.UnPinNote = true;
-                    return noteEntity.PinNote;
                 }
-                noteEntity.PinNote = true;
-                noteEntity.UnPinNote = false;
+                else
+                {
+                    noteEntity.PinNote = true;
+                    noteEntity.UnPinNote = false;
+                }
+                
+                fundooDBContext.SaveChanges();
                 return noteEntity.PinNote;
             }
             catch (Exception ex)
@@ -185,19 +193,63 @@ namespace RepositoryLayer.Services
             }
         }
 
-        public bool ArchiveNote(int noteId)
+        public bool ArchiveNote(int userId, int noteId)
         {
             try
             {
                 NoteEntity noteEntity = new NoteEntity();
-                noteEntity = fundooDBContext.Notes.Where(x => x.NoteId == noteId).FirstOrDefault();
+                noteEntity = fundooDBContext.Notes.Where(x => x.NoteId == noteId && x.UserId == userId).FirstOrDefault();
                 if (noteEntity.Archive)
                 {
                     noteEntity.Archive = false;
-                    return noteEntity.Archive;
                 }
-                noteEntity.Archive = true;
+                else
+                {
+                    noteEntity.Archive = true;
+                }
+
+                fundooDBContext.SaveChanges();
                 return noteEntity.Archive;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public string ChangeBackgroundColor(int userId, int noteId, string backgroundColor)
+        {
+            try
+            {
+                NoteEntity noteEntity = new NoteEntity();
+                noteEntity = fundooDBContext.Notes.Where(x => x.NoteId == noteId && x.UserId == userId).FirstOrDefault();
+                if (noteEntity != null)
+                {
+                    noteEntity.BackgroundColor = backgroundColor;
+                    fundooDBContext.SaveChanges();
+                    return noteEntity.BackgroundColor;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public DateTime NoteReminder(int userId, int noteId, DateTime reminder)
+        {
+            try
+            {
+                NoteEntity noteEntity = new NoteEntity();
+                noteEntity = fundooDBContext.Notes.Where(x => x.NoteId == noteId && x.UserId == userId).FirstOrDefault();
+                if (noteEntity != null)
+                {
+                    noteEntity.RemindMe = reminder;
+                    fundooDBContext.SaveChanges();
+                    return noteEntity.RemindMe;
+                }
+                return DateTime.Now;
             }
             catch (Exception ex)
             {

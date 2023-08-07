@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "br3WMqUkb4D/3fVrK6D5IqqNSjabWKb7QCNExx3J1q6Nc37vowC27UHYPQiS/YhPdjmbvypfsX7LMb5Hiob1XQ==",
+  "dgSpecHash": "CwdNXsqxxPe8NZ33vzFpz2OOnw6JWotOHnKuEYIhIUqJasznfnC7CS6I2m6Mj5PLyPVSco1B5DhGtQ4elcAyOw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\INS 5570\\source\\repos\\FundooNotes\\FundooNotes\\FundooNotes.csproj",
+  "projectFilePath": "C:\\Users\\INS 5570\\source\\repos\\DNDWebAPI-FundooNotes\\FundooNotes\\FundooNotes\\FundooNotes.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\INS 5570\\.nuget\\packages\\automatonymous\\4.2.1\\automatonymous.4.2.1.nupkg.sha512",
     "C:\\Users\\INS 5570\\.nuget\\packages\\greenpipes\\3.0.1\\greenpipes.3.0.1.nupkg.sha512",

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\INS 5570\\source\\repos\\FundooNotes\\CommonLayer\\CommonLayer.csproj": {}
+    "C:\\Users\\INS 5570\\source\\repos\\DNDWebAPI-FundooNotes\\FundooNotes\\CommonLayer\\CommonLayer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\INS 5570\\source\\repos\\FundooNotes\\CommonLayer\\CommonLayer.csproj": {
+    "C:\\Users\\INS 5570\\source\\repos\\DNDWebAPI-FundooNotes\\FundooNotes\\CommonLayer\\CommonLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\INS 5570\\source\\repos\\FundooNotes\\CommonLayer\\CommonLayer.csproj",
+        "projectUniqueName": "C:\\Users\\INS 5570\\source\\repos\\DNDWebAPI-FundooNotes\\FundooNotes\\CommonLayer\\CommonLayer.csproj",
         "projectName": "CommonLayer",
-        "projectPath": "C:\\Users\\INS 5570\\source\\repos\\FundooNotes\\CommonLayer\\CommonLayer.csproj",
+        "projectPath": "C:\\Users\\INS 5570\\source\\repos\\DNDWebAPI-FundooNotes\\FundooNotes\\CommonLayer\\CommonLayer.csproj",
         "packagesPath": "C:\\Users\\INS 5570\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\INS 5570\\source\\repos\\FundooNotes\\CommonLayer\\obj\\",
+        "outputPath": "C:\\Users\\INS 5570\\source\\repos\\DNDWebAPI-FundooNotes\\FundooNotes\\CommonLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\INS 5570\\AppData\\Roaming\\NuGet\\NuGet.Config",

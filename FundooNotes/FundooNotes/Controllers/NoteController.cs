@@ -107,7 +107,8 @@ namespace FundooNotes.Controllers
         [Route("Trash-Note")]
         public IActionResult TrashNote(int noteId)
         {
-            var result = inoteBusiness.TrashNote(noteId);
+            int userId = Convert.ToInt32(this.User.FindFirst("UserId").Value);
+            var result = inoteBusiness.TrashNote(userId, noteId);
             if (result)
             {
                 return Ok(new ResponseModel<bool> { Success = true, Message = "Note Trashed Successfully", Data = result });
@@ -122,7 +123,8 @@ namespace FundooNotes.Controllers
         [Route("Pin-Note")]
         public IActionResult ChangePinNote(int noteId)
         {
-            var result = inoteBusiness.ChangePinNote(noteId);
+            int userId = Convert.ToInt32(this.User.FindFirst("UserId").Value);
+            var result = inoteBusiness.ChangePinNote(userId, noteId);
             if (result)
             {
                 return Ok(new ResponseModel<bool> { Success = true, Message = "Note Pinned", Data = result });
@@ -137,7 +139,8 @@ namespace FundooNotes.Controllers
         [Route("Archive-Note")]
         public IActionResult ArchiveNote(int noteId)
         {
-            var result = inoteBusiness.ArchiveNote(noteId);
+            int userId = Convert.ToInt32(this.User.FindFirst("UserId").Value);
+            var result = inoteBusiness.ArchiveNote(userId, noteId);
             if (result)
             {
                 return Ok(new ResponseModel<bool> { Success = true, Message = "Note Archived", Data = result });
@@ -145,6 +148,38 @@ namespace FundooNotes.Controllers
             else
             {
                 return BadRequest(new ResponseModel<bool> { Success = false, Message = "Note UnArchived", Data = result });
+            }
+        }
+
+        [HttpPut]
+        [Route("Change-Background-Color")]
+        public IActionResult ChangeBackgroundColor(int noteId, string backgroundColor)
+        {
+            int userId = Convert.ToInt32(this.User.FindFirst("UserId").Value);
+            var result = inoteBusiness.ChangeBackgroundColor(userId, noteId, backgroundColor);
+            if (result != null)
+            {
+                return Ok(new ResponseModel<string> { Success = true, Message = "Background Color Changed", Data = result });
+            }
+            else
+            {
+                return BadRequest(new ResponseModel<string> { Success = false, Message = "Background Color Not Changed", Data = result });
+            }
+        }
+
+        [HttpPut]
+        [Route("Set-Reminder")]
+        public IActionResult SetReminder(int noteId, DateTime reminder)
+        {
+            int userId = Convert.ToInt32(this.User.FindFirst("UserId").Value);
+            var result = inoteBusiness.NoteReminder(userId, noteId, reminder);
+            if (result != null)
+            {
+                return Ok(new ResponseModel<DateTime> { Success = true, Message = "Reminder Set", Data = result });
+            }
+            else
+            {
+                return BadRequest(new ResponseModel<DateTime> { Success = false, Message = "Reminder Not Set", Data = result });
             }
         }
     }
