@@ -1,0 +1,10 @@
+C:\Users\INS 5570\source\repos\FundooNotes\CommonLayer\bin\Release\netcoreapp3.1\CommonLayer.deps.json
+C:\Users\INS 5570\source\repos\FundooNotes\CommonLayer\bin\Release\netcoreapp3.1\CommonLayer.dll
+C:\Users\INS 5570\source\repos\FundooNotes\CommonLayer\bin\Release\netcoreapp3.1\CommonLayer.pdb
+C:\Users\INS 5570\source\repos\FundooNotes\CommonLayer\obj\Release\netcoreapp3.1\CommonLayer.csproj.AssemblyReference.cache
+C:\Users\INS 5570\source\repos\FundooNotes\CommonLayer\obj\Release\netcoreapp3.1\CommonLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\INS 5570\source\repos\FundooNotes\CommonLayer\obj\Release\netcoreapp3.1\CommonLayer.AssemblyInfoInputs.cache
+C:\Users\INS 5570\source\repos\FundooNotes\CommonLayer\obj\Release\netcoreapp3.1\CommonLayer.AssemblyInfo.cs
+C:\Users\INS 5570\source\repos\FundooNotes\CommonLayer\obj\Release\netcoreapp3.1\CommonLayer.csproj.CoreCompileInputs.cache
+C:\Users\INS 5570\source\repos\FundooNotes\CommonLayer\obj\Release\netcoreapp3.1\CommonLayer.dll
+C:\Users\INS 5570\source\repos\FundooNotes\CommonLayer\obj\Release\netcoreapp3.1\CommonLayer.pdb

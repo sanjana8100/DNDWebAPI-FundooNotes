@@ -1,0 +1,15 @@
+﻿using CommonLayer.Models;
+using CommonLayer.RequestModels;
+using RepositoryLayer.Entity;
+
+namespace BusinessLayer.Interface
+{
+    public interface IUserBusiness
+    {
+        public UserEntity UserReg(RegistrationModel registrationModel);
+        public bool CheckIfEmailExists(string email);
+        public string Login(LoginModel loginModel);
+        public ForgotPasswordModel UserForgotPassword(string email);
+        public ResetPasswordModel ResetPassword(string email, ResetPasswordModel resetPasswordModel);
+    }
+}
