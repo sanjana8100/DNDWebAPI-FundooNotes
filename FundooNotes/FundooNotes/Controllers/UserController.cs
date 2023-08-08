@@ -7,6 +7,7 @@ using MassTransit;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using RepositoryLayer.Entity;
 using System;
 using System.Net.Sockets;
@@ -20,11 +21,13 @@ namespace FundooNotes.Controllers
     {
         private readonly IUserBusiness iuserBusiness;
         private readonly IBus ibus;
+        private readonly ILogger<UserController> _logger;
 
-        public UserController(IUserBusiness iuserBusiness, IBus ibus)
+        public UserController(IUserBusiness iuserBusiness, IBus ibus, ILogger<UserController> _logger)
         {
             this.iuserBusiness = iuserBusiness;
             this.ibus = ibus;
+            this._logger = _logger;
         }
 
         [HttpPost]

@@ -4,6 +4,7 @@ using CommonLayer.Models;
 using CommonLayer.RequestModels;
 using CommonLayer.ResponseModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using RepositoryLayer.Entity;
 using RepositoryLayer.Migrations;
 using System;
@@ -16,10 +17,12 @@ namespace FundooNotes.Controllers
     public class NoteController : Controller
     {
         private readonly INoteBusiness inoteBusiness;
+        private readonly ILogger<NoteController> _logger;
 
-        public NoteController(INoteBusiness inoteBusiness)
+        public NoteController(INoteBusiness inoteBusiness, ILogger<NoteController> _logger)
         {
             this.inoteBusiness = inoteBusiness;
+            this._logger = _logger;
         }
 
         [HttpPost]
@@ -27,15 +30,24 @@ namespace FundooNotes.Controllers
         [Route("Take-A-Note")]
         public IActionResult TakeANote(NotesModel notesModel)
         {
-            int userId = Convert.ToInt32(this.User.FindFirst("UserId").Value);
-            var result = inoteBusiness.TakeANote(notesModel, userId);
-            if (result != null)
+            try
             {
-                return Ok(new ResponseModel<NoteEntity> { Success = true, Message = "Note Added Successfully", Data = result });
+                int userId = Convert.ToInt32(this.User.FindFirst("UserId").Value);
+                var result = inoteBusiness.TakeANote(notesModel, userId);
+                if (result != null)
+                {
+                    _logger.LogInformation("Note Added");
+                    return Ok(new ResponseModel<NoteEntity> { Success = true, Message = "Note Added Successfully", Data = result });
+                }
+                else
+                {
+                    return BadRequest(new ResponseModel<NoteEntity> { Success = false, Message = "Note NOT Added Successfully", Data = null });
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return BadRequest(new ResponseModel<NoteEntity> { Success = false, Message = "Note NOT Added Successfully", Data = result });
+                _logger.LogError(ex.ToString());
+                throw ex;
             }
         }
 
@@ -173,7 +185,7 @@ namespace FundooNotes.Controllers
         {
             int userId = Convert.ToInt32(this.User.FindFirst("UserId").Value);
             var result = inoteBusiness.NoteReminder(userId, noteId, reminder);
-            if (result != null)
+            if (result == reminder)
             {
                 return Ok(new ResponseModel<DateTime> { Success = true, Message = "Reminder Set", Data = result });
             }

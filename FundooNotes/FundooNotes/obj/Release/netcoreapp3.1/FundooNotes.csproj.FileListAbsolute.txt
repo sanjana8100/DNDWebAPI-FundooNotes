@@ -75,6 +75,7 @@ C:\Users\INS 5570\source\repos\FundooNotes\FundooNotes\obj\Release\netcoreapp3.1
 C:\Users\INS 5570\source\repos\FundooNotes\FundooNotes\obj\Release\netcoreapp3.1\FundooNotes.dll
 C:\Users\INS 5570\source\repos\FundooNotes\FundooNotes\obj\Release\netcoreapp3.1\FundooNotes.pdb
 C:\Users\INS 5570\source\repos\FundooNotes\FundooNotes\obj\Release\netcoreapp3.1\FundooNotes.genruntimeconfig.cache
+C:\Users\INS 5570\source\repos\DNDWebAPI-FundooNotes\FundooNotes\FundooNotes\bin\Release\netcoreapp3.1\NLog.config
 C:\Users\INS 5570\source\repos\DNDWebAPI-FundooNotes\FundooNotes\FundooNotes\bin\Release\netcoreapp3.1\appsettings.Development.json
 C:\Users\INS 5570\source\repos\DNDWebAPI-FundooNotes\FundooNotes\FundooNotes\bin\Release\netcoreapp3.1\appsettings.json
 C:\Users\INS 5570\source\repos\DNDWebAPI-FundooNotes\FundooNotes\FundooNotes\bin\Release\netcoreapp3.1\FundooNotes.exe
@@ -110,6 +111,9 @@ C:\Users\INS 5570\source\repos\DNDWebAPI-FundooNotes\FundooNotes\FundooNotes\bin
 C:\Users\INS 5570\source\repos\DNDWebAPI-FundooNotes\FundooNotes\FundooNotes\bin\Release\netcoreapp3.1\NewId.dll
 C:\Users\INS 5570\source\repos\DNDWebAPI-FundooNotes\FundooNotes\FundooNotes\bin\Release\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\INS 5570\source\repos\DNDWebAPI-FundooNotes\FundooNotes\FundooNotes\bin\Release\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+C:\Users\INS 5570\source\repos\DNDWebAPI-FundooNotes\FundooNotes\FundooNotes\bin\Release\netcoreapp3.1\NLog.dll
+C:\Users\INS 5570\source\repos\DNDWebAPI-FundooNotes\FundooNotes\FundooNotes\bin\Release\netcoreapp3.1\NLog.Extensions.Logging.dll
+C:\Users\INS 5570\source\repos\DNDWebAPI-FundooNotes\FundooNotes\FundooNotes\bin\Release\netcoreapp3.1\NLog.Web.AspNetCore.dll
 C:\Users\INS 5570\source\repos\DNDWebAPI-FundooNotes\FundooNotes\FundooNotes\bin\Release\netcoreapp3.1\RabbitMQ.Client.dll
 C:\Users\INS 5570\source\repos\DNDWebAPI-FundooNotes\FundooNotes\FundooNotes\bin\Release\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\INS 5570\source\repos\DNDWebAPI-FundooNotes\FundooNotes\FundooNotes\bin\Release\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll

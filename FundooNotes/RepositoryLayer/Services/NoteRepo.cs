@@ -249,7 +249,7 @@ namespace RepositoryLayer.Services
                     fundooDBContext.SaveChanges();
                     return noteEntity.RemindMe;
                 }
-                return DateTime.Now;
+                return noteEntity.RemindMe;
             }
             catch (Exception ex)
             {

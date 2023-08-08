@@ -40,6 +40,7 @@
           "Microsoft.EntityFrameworkCore.Relational": "3.1.0",
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.0",
           "Microsoft.EntityFrameworkCore.Tools": "3.1.0",
+          "NLog.Web.AspNetCore": "5.3.3",
           "RepositoryLayer": "1.0.0",
           "Swashbuckle.AspNetCore": "6.5.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
@@ -1003,6 +1004,47 @@
         },
         "compile": {
           "lib/netstandard1.3/Newtonsoft.Json.Bson.dll": {}
+        }
+      },
+      "NLog/5.2.3": {
+        "runtime": {
+          "lib/netstandard2.0/NLog.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.2.3.1999"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/NLog.dll": {}
+        }
+      },
+      "NLog.Extensions.Logging/5.3.3": {
+        "dependencies": {
+          "Microsoft.Extensions.Configuration.Abstractions": "3.1.0",
+          "Microsoft.Extensions.Logging": "3.1.0",
+          "NLog": "5.2.3"
+        },
+        "runtime": {
+          "lib/netstandard2.1/NLog.Extensions.Logging.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.3.3.381"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/NLog.Extensions.Logging.dll": {}
+        }
+      },
+      "NLog.Web.AspNetCore/5.3.3": {
+        "dependencies": {
+          "NLog.Extensions.Logging": "5.3.3"
+        },
+        "runtime": {
+          "lib/netcoreapp3.1/NLog.Web.AspNetCore.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.3.3.940"
+          }
+        },
+        "compile": {
+          "lib/netcoreapp3.1/NLog.Web.AspNetCore.dll": {}
         }
       },
       "RabbitMQ.Client/5.1.2": {
@@ -4159,6 +4201,27 @@
       "sha512": "sha512-5PYT/IqQ+UK31AmZiSS102R6EsTo+LGTSI8bp7WAUqDKaF4wHXD8U9u4WxTI1vc64tYi++8p3dk3WWNqPFgldw==",
       "path": "newtonsoft.json.bson/1.0.1",
       "hashPath": "newtonsoft.json.bson.1.0.1.nupkg.sha512"
+    },
+    "NLog/5.2.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-rHTNRtQF5qYqLutSR9ldUWXglKym/KA1R6GKw4JtDvza8i5+kgfmeKH75Ccn1noeJIOjHLXorphMxKk3EiN2tg==",
+      "path": "nlog/5.2.3",
+      "hashPath": "nlog.5.2.3.nupkg.sha512"
+    },
+    "NLog.Extensions.Logging/5.3.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-o3V1oUr0izjhU1djuVqN5JdmNUGmunTs3Amjhumt/nxva8kG9QWjOdba+ciwkP//QOjv+KkGklZtI9o4qz50hQ==",
+      "path": "nlog.extensions.logging/5.3.3",
+      "hashPath": "nlog.extensions.logging.5.3.3.nupkg.sha512"
+    },
+    "NLog.Web.AspNetCore/5.3.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ub8LOAbIGIPtv9nMAdZXlxUvszau6p2Svmeo8mhJFD+PQDMnI6PFc5IID1Jj3c1Lv8sxKVL7vRCsaWdTrmnrFw==",
+      "path": "nlog.web.aspnetcore/5.3.3",
+      "hashPath": "nlog.web.aspnetcore.5.3.3.nupkg.sha512"
     },
     "RabbitMQ.Client/5.1.2": {
       "type": "package",

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "CwdNXsqxxPe8NZ33vzFpz2OOnw6JWotOHnKuEYIhIUqJasznfnC7CS6I2m6Mj5PLyPVSco1B5DhGtQ4elcAyOw==",
+  "dgSpecHash": "VUFEUE0CnILERlM1cq2k3O9OHuu7oVuCYcvvCgGmVORz+h2Qd1vsfEZvx5mrK5uXrZCv3me14M8lAd7XZZRLGw==",
   "success": true,
   "projectFilePath": "C:\\Users\\INS 5570\\source\\repos\\DNDWebAPI-FundooNotes\\FundooNotes\\FundooNotes\\FundooNotes.csproj",
   "expectedPackageFiles": [
@@ -72,6 +72,9 @@
     "C:\\Users\\INS 5570\\.nuget\\packages\\newid\\3.0.2\\newid.3.0.2.nupkg.sha512",
     "C:\\Users\\INS 5570\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
     "C:\\Users\\INS 5570\\.nuget\\packages\\newtonsoft.json.bson\\1.0.1\\newtonsoft.json.bson.1.0.1.nupkg.sha512",
+    "C:\\Users\\INS 5570\\.nuget\\packages\\nlog\\5.2.3\\nlog.5.2.3.nupkg.sha512",
+    "C:\\Users\\INS 5570\\.nuget\\packages\\nlog.extensions.logging\\5.3.3\\nlog.extensions.logging.5.3.3.nupkg.sha512",
+    "C:\\Users\\INS 5570\\.nuget\\packages\\nlog.web.aspnetcore\\5.3.3\\nlog.web.aspnetcore.5.3.3.nupkg.sha512",
     "C:\\Users\\INS 5570\\.nuget\\packages\\rabbitmq.client\\5.1.2\\rabbitmq.client.5.1.2.nupkg.sha512",
     "C:\\Users\\INS 5570\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\INS 5570\\.nuget\\packages\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.fedora.23-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
