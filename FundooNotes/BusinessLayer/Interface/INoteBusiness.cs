@@ -17,5 +17,7 @@ namespace BusinessLayer.Interface
         public bool ArchiveNote(int userId, int noteId);
         public string ChangeBackgroundColor(int userId, int noteId, string backgroundColor);
         public DateTime NoteReminder(int userId, int noteId, DateTime reminder);
+        public string UploadImage(int userId, int noteId, string filePath);
+        public List<NoteEntity> GetAllNotesInTable();
     }
 }

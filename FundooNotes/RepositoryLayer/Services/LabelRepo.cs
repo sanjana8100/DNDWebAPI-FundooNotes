@@ -69,6 +69,24 @@ namespace RepositoryLayer.Services
             }
         }
 
+        public List<LabelEntity> GetAllLabelsByNote(int userId, int noteId)
+        {
+            try
+            {
+                List<LabelEntity> noteLabels = new List<LabelEntity>();
+                noteLabels = fundooDBContext.Labels.Where(x => x.UserId == userId && x.NoteId == noteId).ToList();
+                if (noteLabels != null)
+                {
+                    return noteLabels;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public LabelEntity GetLabel(int userId, int labelId)
         {
             try

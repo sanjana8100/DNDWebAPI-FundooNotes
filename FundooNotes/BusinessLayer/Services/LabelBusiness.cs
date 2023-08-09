@@ -19,6 +19,10 @@ namespace BusinessLayer.Services
         {
             return ilabelRepo.GetAllLabels(userId);
         }
+        public List<LabelEntity> GetAllLabelsByNote(int userId, int noteId)
+        {
+            return ilabelRepo.GetAllLabelsByNote(userId, noteId);
+        }
         public LabelEntity GetLabel(int userId, int labelId)
         {
             return ilabelRepo.GetLabel(userId, labelId);

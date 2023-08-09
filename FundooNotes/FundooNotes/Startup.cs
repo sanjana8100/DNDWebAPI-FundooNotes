@@ -47,7 +47,16 @@ namespace FundooNotes
             services.AddTransient<ICollabRepo, CollabRepo>();
             services.AddTransient<ICollabBusiness, CollabBusiness>();
             services.AddSwaggerGen();
-            
+            services.AddDistributedMemoryCache();
+            services.AddStackExchangeRedisCache(options => { options.Configuration = "localhost:6379"; });
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(120);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
+
+
             services.AddMassTransit(x =>
             {
                 x.AddBus(provider => Bus.Factory.CreateUsingRabbitMq(config =>
@@ -103,6 +112,7 @@ namespace FundooNotes
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseSession();
             
 
             app.UseEndpoints(endpoints =>

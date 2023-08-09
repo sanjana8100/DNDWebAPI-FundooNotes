@@ -66,5 +66,15 @@ namespace BusinessLayer.Services
         {
             return inoteRepo.NoteReminder(userId, noteId, reminder);
         }
+
+        public string UploadImage(int userId, int noteId, string filePath)
+        {
+            return inoteRepo.UploadImage(userId, noteId, filePath);
+        }
+
+        public List<NoteEntity> GetAllNotesInTable()
+        {
+            return inoteRepo.GetAllNotesInTable();
+        }
     }
 }

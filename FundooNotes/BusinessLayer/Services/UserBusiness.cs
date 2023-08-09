@@ -43,5 +43,10 @@ namespace BusinessLayer.Services
         {
             return iuserRepo.ResetPassword(email, resetPasswordModel);
         }
+
+        public UserEntity UserLogin(LoginModel loginModel)
+        {
+            return iuserRepo.UserLogin(loginModel);
+        }
     }
 }

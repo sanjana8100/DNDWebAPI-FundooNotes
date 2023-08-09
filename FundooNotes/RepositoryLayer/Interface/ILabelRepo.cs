@@ -7,6 +7,7 @@ namespace RepositoryLayer.Interface
     {
         public LabelEntity AddLabel(int userId, int noteId, string labelName);
         public List<LabelEntity> GetAllLabels(int userId);
+        public List<LabelEntity> GetAllLabelsByNote(int userId, int noteId);
         public LabelEntity GetLabel(int userId, int labelId);
         public List<NoteEntity> GetAllNotesByLabels(int userId, int labelId);
         public NoteEntity GetNoteByLabels(int userId, int noteId, int labelId);

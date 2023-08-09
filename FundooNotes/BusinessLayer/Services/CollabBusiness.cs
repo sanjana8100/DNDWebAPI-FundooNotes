@@ -24,6 +24,10 @@ namespace BusinessLayer.Services
         {
             return icollabRepo.GetAllCollabs(userId);
         }
+        public List<CollabEntity> GetAllCollabsByNote(int userId, int noteId)
+        {
+            return icollabRepo.GetAllCollabsByNote(userId, noteId);
+        }
         public List<NoteEntity> GetAllNotesByCollab(int userId, int collabId)
         {
             return icollabRepo.GetAllNotesByCollab(userId, collabId);

@@ -28,23 +28,30 @@ namespace RepositoryLayer.Services
 
         public UserEntity UserReg(RegistrationModel registrationModel)
         {
-            UserEntity userEntity = new UserEntity();
-
-            userEntity.FirstName = registrationModel.FirstName;
-            userEntity.LastName = registrationModel.LastName;
-            userEntity.Email = registrationModel.Email;
-            userEntity.Password = EncodePasswordToBase64(registrationModel.Password);
-            userEntity.CreatedAt = DateTime.Now;
-            userEntity.UpdatedAt = DateTime.Now;
-
-            if (!CheckIfEmailExists(registrationModel.Email))
+            try
             {
-                fundooDBContext.Users.Add(userEntity);
-                fundooDBContext.SaveChanges();
+                UserEntity userEntity = new UserEntity();
 
-                return userEntity;
+                userEntity.FirstName = registrationModel.FirstName;
+                userEntity.LastName = registrationModel.LastName;
+                userEntity.Email = registrationModel.Email;
+                userEntity.Password = EncodePasswordToBase64(registrationModel.Password);
+                userEntity.CreatedAt = DateTime.Now;
+                userEntity.UpdatedAt = DateTime.Now;
+
+                if (!CheckIfEmailExists(registrationModel.Email))
+                {
+                    fundooDBContext.Users.Add(userEntity);
+                    fundooDBContext.SaveChanges();
+
+                    return userEntity;
+                }
+                return null;
             }
-            return null;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public bool CheckIfEmailExists(string email)
@@ -74,22 +81,21 @@ namespace RepositoryLayer.Services
 
         public string Login(LoginModel loginModel)
         {
-            string EncodedPassword = EncodePasswordToBase64(loginModel.Password);
-            var CheckEmail = fundooDBContext.Users.FirstOrDefault(x => x.Email == loginModel.Email);
-            if (CheckEmail != null)
+            try
             {
-                var CheckPassword = fundooDBContext.Users.FirstOrDefault(x => x.Password == EncodedPassword);
-                if (CheckPassword != null)
+                string EncodedPassword = EncodePasswordToBase64(loginModel.Password);
+                var loginUser = fundooDBContext.Users.FirstOrDefault(x => x.Email == loginModel.Email && x.Password == EncodedPassword);
+                if (loginUser != null)
                 {
-                    var token = GenerateToken(CheckEmail.Email, CheckEmail.UserId);
+                    var token = GenerateToken(loginUser.Email, loginUser.UserId);
                     return token;
                 }
-                else
-                {
-                    return null;
-                }
+                return null;
             }
-            return null;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         private string GenerateToken(string Email, int UserId)
@@ -141,6 +147,24 @@ namespace RepositoryLayer.Services
                     result.Password = EncodePasswordToBase64(resetPasswordModel.ConfirmPassword);
                     fundooDBContext.SaveChanges();
                     return resetPasswordModel;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public UserEntity UserLogin(LoginModel loginModel)
+        {
+            try
+            {
+                string EncodedPassword = EncodePasswordToBase64(loginModel.Password);
+                UserEntity loginUser = fundooDBContext.Users.FirstOrDefault(x => x.Email == loginModel.Email && x.Password == EncodedPassword);
+                if (loginUser != null)
+                {
+                    return loginUser;
                 }
                 return null;
             }

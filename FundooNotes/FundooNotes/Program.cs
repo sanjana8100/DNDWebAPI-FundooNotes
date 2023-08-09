@@ -17,6 +17,9 @@ namespace FundooNotes
         {
             var logPath = Path.Combine(Directory.GetCurrentDirectory(), "Logs");
             NLog.GlobalDiagnosticsContext.Set("LogDirectory", logPath);
+
+            var Logger = NLogBuilder.ConfigureNLog("NLog.config").GetCurrentClassLogger();
+            Logger.Debug("The application Started");
             CreateHostBuilder(args).Build().Run();
         }
 

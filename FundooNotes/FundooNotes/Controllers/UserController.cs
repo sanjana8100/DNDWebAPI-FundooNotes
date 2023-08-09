@@ -21,13 +21,13 @@ namespace FundooNotes.Controllers
     {
         private readonly IUserBusiness iuserBusiness;
         private readonly IBus ibus;
-        private readonly ILogger<UserController> _logger;
+        private readonly ILogger<UserController> logger;
 
-        public UserController(IUserBusiness iuserBusiness, IBus ibus, ILogger<UserController> _logger)
+        public UserController(IUserBusiness iuserBusiness, IBus ibus, ILogger<UserController> logger)
         {
             this.iuserBusiness = iuserBusiness;
             this.ibus = ibus;
-            this._logger = _logger;
+            this.logger = logger;
         }
 
         [HttpPost]
@@ -35,14 +35,24 @@ namespace FundooNotes.Controllers
         [Route("Register")]
         public IActionResult Registration(RegistrationModel registrationModel)
         {
-            var result = iuserBusiness.UserReg(registrationModel);
-            if (result != null)
+            try
             {
-                return Ok(new ResponseModel<UserEntity> { Success = true, Message = "Registration Successful", Data = result });
+                var result = iuserBusiness.UserReg(registrationModel);
+                if (result != null)
+                {
+                    logger.LogInformation("Registration Successful");
+                    return Ok(new ResponseModel<UserEntity> { Success = true, Message = "Registration Successful", Data = result });
+                }
+                else
+                {
+                    logger.LogError("Registration Failed");
+                    return BadRequest(new ResponseModel<UserEntity> { Success = false, Message = "Registration Failed", Data = result });
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return BadRequest(new ResponseModel<UserEntity> { Success = false, Message = "Registration Failed", Data = result });
+                logger.LogCritical("Exception Occurred...");
+                throw ex;
             }
         }
 
@@ -50,14 +60,24 @@ namespace FundooNotes.Controllers
         [Route("Login")]
         public IActionResult Login(LoginModel loginModel)
         {
-            var result = iuserBusiness.Login(loginModel);
-            if (result != null)
+            try
             {
-                return Ok(new ResponseModel<string> { Success = true, Message = "Login Successful", Data = result });
+                var result = iuserBusiness.Login(loginModel);
+                if (result != null)
+                {
+                    logger.LogInformation("Login Successful");
+                    return Ok(new ResponseModel<string> { Success = true, Message = "Login Successful", Data = result });
+                }
+                else
+                {
+                    logger.LogError("Login Unsuccessful");
+                    return BadRequest(new ResponseModel<string> { Success = false, Message = "Login Unsuccessful", Data = result });
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return BadRequest(new ResponseModel<string> { Success = false, Message = "Login Failed", Data = result });
+                logger.LogCritical("Exception Occurred...");
+                throw ex;
             }
         }
         
@@ -77,12 +97,15 @@ namespace FundooNotes.Controllers
                     await endPoint.Send(forgotPasswordModel);
                     sendEmail.SendingEmail(forgotPasswordModel.Email, forgotPasswordModel.Token);
 
+                    logger.LogInformation("Email Sent Successfully");
                     return Ok(new ResponseModel<string> { Success = true, Message = "Email Sent Successfully", Data = email});
                 }
+                logger.LogError("Email Not Sent Successfully");
                 return BadRequest(new ResponseModel<string> { Success = false, Message = "Email Not Sent Successfully", Data = email });
             }
             catch (Exception ex)
             {
+                logger.LogCritical("Exception Occurred...");
                 throw ex;
             }
         }
@@ -92,16 +115,53 @@ namespace FundooNotes.Controllers
         [Route("Reset-Password")]
         public IActionResult ResetPassword(ResetPasswordModel resetPasswordModel)
         {
-            string email = User.FindFirst(x => x.Type == "Email").Value;
-            var result = iuserBusiness.ResetPassword(email, resetPasswordModel);
-            if (result != null)
+            try
             {
-                return Ok(new ResponseModel<ResetPasswordModel> { Success = true, Message = "Password Reset Successful", Data = result });
+                string email = User.FindFirst(x => x.Type == "Email").Value;
+                var result = iuserBusiness.ResetPassword(email, resetPasswordModel);
+                if (result != null)
+                {
+                    logger.LogInformation("Password Reset Successful");
+                    return Ok(new ResponseModel<ResetPasswordModel> { Success = true, Message = "Password Reset Successful", Data = result });
+                }
+                else
+                {
+                    logger.LogError("Password Reset Failed");
+                    return BadRequest(new ResponseModel<ResetPasswordModel> { Success = false, Message = "Password Reset Failed", Data = result });
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return BadRequest(new ResponseModel<ResetPasswordModel> { Success = false, Message = "Password Reset Failed", Data = result });
+                logger.LogCritical("Exception Occurred...");
+                throw ex;
+            }
+        }
+
+        [HttpPost]
+        [Route("User-Login")]
+        public IActionResult UserLogin(LoginModel loginModel)
+        {
+            try
+            {
+                var result = iuserBusiness.UserLogin(loginModel);
+                if (result != null)
+                {
+                    HttpContext.Session.SetInt32("userId", result.UserId);
+                    logger.LogInformation("Login Successful");
+                    return Ok(new ResponseModel<UserEntity> { Success = true, Message = "Login Successful", Data = result });
+                }
+                else
+                {
+                    logger.LogError("Login Unsuccessful");
+                    return BadRequest(new ResponseModel<UserEntity> { Success = false, Message = "Login Unsuccessful", Data = result });
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.LogCritical("Exception Occurred...");
+                throw ex;
             }
         }
     }
+
 }

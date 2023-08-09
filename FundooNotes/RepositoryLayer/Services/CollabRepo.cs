@@ -71,6 +71,24 @@ namespace RepositoryLayer.Services
             }
         }
 
+        public List<CollabEntity> GetAllCollabsByNote(int userId, int noteId)
+        {
+            try
+            {
+                List<CollabEntity> noteCollabs = new List<CollabEntity>();
+                noteCollabs = fundooDBContext.Collaborations.Where(x => x.UserId == userId && x.NoteId == noteId).ToList();
+                if (noteCollabs != null)
+                {
+                    return noteCollabs;
+                }
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public CollabEntity GetCollab(int userId, int collabId)
         {
             try
